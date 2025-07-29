@@ -526,6 +526,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100066, guid: 4a7c3ad7168bb834b87a91e3f94ad3d6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 995800036}
+    - targetCorrespondingSourceObject: {fileID: 100066, guid: 4a7c3ad7168bb834b87a91e3f94ad3d6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 995800038}
   m_SourcePrefab: {fileID: 100100000, guid: 4a7c3ad7168bb834b87a91e3f94ad3d6, type: 3}
 --- !u!1 &995800035 stripped
 GameObject:
@@ -561,7 +564,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 995800035}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 40
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -580,6 +583,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &995800038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995800035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56419a334006cfd4aaae0ff0969dbe85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 250
+  gravityModifier: 1
+  isGrounded: 1
 --- !u!1 &2014335011
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,7 +612,7 @@ GameObject:
   - component: {fileID: 2014335012}
   m_Layer: 9
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
