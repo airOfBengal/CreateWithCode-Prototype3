@@ -4,16 +4,25 @@ public class MoveLeft : MonoBehaviour
 {
     public float speed = 30f;
     private Rigidbody rb;
+    private PlayerController playerController;
+    public float leftBound = -15f;
 
-    // void Start()
-    // {
-    //     rb = GetComponent<Rigidbody>();
-    //     rb.AddForce(Vector3.left * speed, ForceMode.VelocityChange);
-    // }
+    void Start()
+    {
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(speed * Time.deltaTime * Vector3.left);
+        if(playerController.gameOver == false)
+        {            
+            transform.Translate(speed * Time.deltaTime * Vector3.left);
+        }
+        
+        if (transform.position.x < leftBound && gameObject.CompareTag("Obstacle"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

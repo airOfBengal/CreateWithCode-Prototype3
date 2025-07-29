@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 6f;
     public float gravityModifier;
     public bool isGrounded = true;
+    public bool gameOver = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,6 +30,11 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+        }
+        else if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            Debug.Log("Game Over");
+            gameOver = true;
         }
     }
 }
