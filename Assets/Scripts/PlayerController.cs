@@ -7,10 +7,12 @@ public class PlayerController : MonoBehaviour
     public float gravityModifier;
     public bool isGrounded = true;
     public bool gameOver = false;
+    private Animator animator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         Physics.gravity *= gravityModifier;
     }
@@ -22,6 +24,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
+            animator.SetTrigger("Jump_trig");
         }
     }
 
@@ -35,6 +38,8 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Game Over");
             gameOver = true;
+            animator.SetBool("Death_b", true);
+            animator.SetInteger("DeathType_int", 1);
         }
     }
 }
